@@ -1,0 +1,19 @@
+# Все текстовые файлы — с LF, даже если репозиторий клонят на Windows.
+# Иначе .sh-скрипты, запускаемые внутри Linux-контейнера, ломаются
+# с ошибкой "bad interpreter: /bin/sh^M".
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.md text eol=lf
+Dockerfile text eol=lf
+Makefile text eol=lf
+
+# Бинарники не трогаем
+*.png binary
+*.jpg binary
+*.ico binary
