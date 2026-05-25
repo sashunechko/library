@@ -134,7 +134,9 @@ alembic -c migrations/alembic.ini upgrade head
 uvicorn app.main:app --reload
 ```
 
-`DATABASE_URL` уже указывает на `localhost:5432`, так что подключение сработает.
+`DATABASE_URL` уже указывает на `localhost:5432`,
+
+так что подключение сработает.
 
 ---
 
@@ -142,7 +144,10 @@ uvicorn app.main:app --reload
 
 ```
 app/
-  main.py          FastAPI app, регистрация роутеров, IntegrityError → 409
+  main.py          FastAPI app, регистрация роутеров, IntegrityError
+
+
+→ 409
   database.py      async engine, sessionmaker, get_db()
   models.py        SQLAlchemy 2.0 declarative models
   schemas.py       Pydantic v2 (Create / Update / Read + PaginatedResponse)
@@ -245,13 +250,21 @@ CREATE DATABASE library_test;
 
 **Контейнер app перезапускается в логах** — обычно либо миграция упала (смотри `make logs`), либо БД ещё не готова. healthcheck должен отрабатывать, но если что — `make down && make up`.
 
-**На Windows: `./scripts/entrypoint.sh: /bin/sh^M: bad interpreter`** — `.sh` склонировался с CRLF. Не должно случиться благодаря `.gitattributes`, но если — конвертируй вручную:
+**На Windows: `./scripts/entrypoint.sh: /bin/sh^M: bad
+
+interpreter`** — `.sh` склонировался с CRLF. Не должно случиться благодаря `.gitattributes`, но если — конвертируй вручную:
 
 ```powershell
 docker run --rm -v ${PWD}:/repo alpine sh -c "apk add --no-cache dos2unix && dos2unix /repo/scripts/*.sh"
-docker compose up -d --build
+docker
+
+
+compose up -d --build
 ```
 
 **На Windows: `curl: Invoke-WebRequest ...` с ошибкой парсинга** — это PowerShell-алиас. Используй `curl.exe` (с расширением).
-#   l i b r a r y  
- 
+
+
+
+
+
