@@ -253,3 +253,5 @@ docker compose up -d --build
 ```
 
 **На Windows: `curl: Invoke-WebRequest ...` с ошибкой парсинга** — это PowerShell-алиас. Используй `curl.exe` (с расширением).
+#   l i b r a r y  
+ 
